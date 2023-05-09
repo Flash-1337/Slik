@@ -8,5 +8,18 @@
         <FontFamily x:Key="SpaceMonoBoldItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-BoldItalic.ttf#Space Mono Bold Italic</FontFamily>
         <FontFamily x:Key="SpaceMonoItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Italic.ttf#Space Mono Italic</FontFamily>
         <FontFamily x:Key="SpaceMono">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Regular.ttf#Space Mono</FontFamily>
+
+        <Style TargetType="Border" x:Key="PanelStyle">
+            <Setter Property="Background" Value="#171717"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
+   
 </Application>

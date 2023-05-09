@@ -10,28 +10,14 @@
         Height="900"
         Width="1600"
         WindowStyle="None">
-    <Grid Background="#FF101010" MouseDown="Grid_MouseDown">
+    <Grid x:Name="WindowGrid" Background="#FF101010" MouseDown="Grid_MouseDown">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="5*">
             </RowDefinition>
-            <RowDefinition Height="5*">
-            </RowDefinition>
-            <RowDefinition Height="90*">
+            <RowDefinition Height="95*">
             </RowDefinition>
         </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*">
-            </ColumnDefinition>
-
-            <ColumnDefinition Width="55*">
-            </ColumnDefinition>
-
-            <ColumnDefinition Width="25*">
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
 
         <TextBlock 
             Text="Slɪ́k"
@@ -45,52 +31,26 @@
             </TextBlock.Foreground>
         </TextBlock>
 
-        <Border 
-            Grid.Row="1" 
-            Margin="10,10,10,0" 
-            Padding="10"
-            Background="#171717"
-            CornerRadius="10,10,0,0">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
-            </Border.Effect>
-        </Border>
 
-        <Border 
-            Grid.Row="2" 
-            Margin="10,0,10,10" 
-            Padding="10"
-            Background="#171717"
-            CornerRadius="0,0,10,10">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
-            </Border.Effect>
-        </Border>
+        <Grid x:Name="ContentGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*">
+                </ColumnDefinition>
+
+                <ColumnDefinition Width="55*">
+                </ColumnDefinition>
+
+                <ColumnDefinition Width="25*">
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
 
-        <Border 
-            Grid.Row="2" 
-            Grid.Column="1" 
-            Margin="10" 
-            Padding="10"
-            Background="#171717"
-            CornerRadius="10">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
-            </Border.Effect>
-        </Border>
+            <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource PanelStyle}"/>
+            <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource PanelStyle}"/>
+            <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource PanelStyle}"/>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource PanelStyle}"/>
+        </Grid>
 
 
-        <Border 
-            Grid.Row="2" 
-            Grid.Column="2" 
-            Margin="10" 
-            Padding="10"
-            Background="#171717"
-            CornerRadius="10">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
-            </Border.Effect>
-        </Border>
     </Grid>
 </Window>
