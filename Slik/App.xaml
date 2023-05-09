@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Slik"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="SpaceMonoBold">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Bold.ttf#Space Mono Bold</FontFamily>
+        <FontFamily x:Key="SpaceMonoBoldItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-BoldItalic.ttf#Space Mono Bold Italic</FontFamily>
+        <FontFamily x:Key="SpaceMonoItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Italic.ttf#Space Mono Italic</FontFamily>
+        <FontFamily x:Key="SpaceMono">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Regular.ttf#Space Mono</FontFamily>
     </Application.Resources>
 </Application>

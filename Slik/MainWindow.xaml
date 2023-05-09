@@ -5,8 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Slik"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow"
+        AllowsTransparency="True"
+        Height="900"
+        Width="1600"
+        WindowStyle="None">
+    <Grid Background="#FF101010" MouseDown="Grid_MouseDown">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*">
+            </RowDefinition>
+            <RowDefinition Height="5*">
+            </RowDefinition>
+            <RowDefinition Height="90*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*">
+            </ColumnDefinition>
+
+            <ColumnDefinition Width="55*">
+            </ColumnDefinition>
+
+            <ColumnDefinition Width="25*">
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock 
+            Text="Slɪ́k"
+            FontFamily="{StaticResource SpaceMono}"
+            FontSize="24">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#C7E4FF"/>
+                    <GradientStop Offset="1" Color="#83C3FF"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <Border 
+            Grid.Row="1" 
+            Margin="10,10,10,0" 
+            Padding="10"
+            Background="#171717"
+            CornerRadius="10,10,0,0">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+
+        <Border 
+            Grid.Row="2" 
+            Margin="10,0,10,10" 
+            Padding="10"
+            Background="#171717"
+            CornerRadius="0,0,10,10">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+
+
+        <Border 
+            Grid.Row="2" 
+            Grid.Column="1" 
+            Margin="10" 
+            Padding="10"
+            Background="#171717"
+            CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+
+
+        <Border 
+            Grid.Row="2" 
+            Grid.Column="2" 
+            Margin="10" 
+            Padding="10"
+            Background="#171717"
+            CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>
