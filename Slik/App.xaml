@@ -9,7 +9,12 @@
         <FontFamily x:Key="SpaceMonoItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Italic.ttf#Space Mono Italic</FontFamily>
         <FontFamily x:Key="SpaceMono">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Regular.ttf#Space Mono</FontFamily>
 
-        <Style TargetType="Border" x:Key="PanelStyle">
+        <Image x:Key="CloseIcon" Source="pack://application:,,,/Slik;component/Resources/Icons/close.svg"/>
+        <Image x:Key="MinimizeIcon" Source="pack://application:,,,/Slik;component/Resources/Icons/minimize.svg"/>
+        <<Image x:Key="MySvgImage" Source="pack://application:,,,/MyWpfApp;component/Resources/Icons/mclose.svg"/>
+
+
+            <Style TargetType="Border" x:Key="PanelStyle">
             <Setter Property="Background" Value="#171717"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>

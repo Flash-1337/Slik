@@ -12,6 +12,8 @@
     <None Remove="Resources\Font\SpaceMono-BoldItalic.ttf" />
     <None Remove="Resources\Font\SpaceMono-Italic.ttf" />
     <None Remove="Resources\Font\SpaceMono-Regular.ttf" />
+    <None Remove="Resources\Icons\close.svg" />
+    <None Remove="Resources\Icons\minimize.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +29,8 @@
     <Resource Include="Resources\Font\SpaceMono-Regular.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Icons\close.svg" />
+    <Resource Include="Resources\Icons\minimize.svg" />
   </ItemGroup>
 
 </Project>
