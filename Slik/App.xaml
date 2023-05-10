@@ -9,12 +9,61 @@
         <FontFamily x:Key="SpaceMonoItalic">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Italic.ttf#Space Mono Italic</FontFamily>
         <FontFamily x:Key="SpaceMono">pack://application:,,,/Slik;component/Resources/Font/SpaceMono-Regular.ttf#Space Mono</FontFamily>
 
-        <Image x:Key="CloseIcon" Source="pack://application:,,,/Slik;component/Resources/Icons/close.svg"/>
-        <Image x:Key="MinimizeIcon" Source="pack://application:,,,/Slik;component/Resources/Icons/minimize.svg"/>
-        <<Image x:Key="MySvgImage" Source="pack://application:,,,/MyWpfApp;component/Resources/Icons/mclose.svg"/>
+        <DrawingImage x:Key="CloseIcon">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="White" Geometry="M249,849L207,807 438,576 207,345 249,303 480,534 711,303 753,345 522,576 753,807 711,849 480,618 249,849z"/>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
 
 
-            <Style TargetType="Border" x:Key="PanelStyle">
+        <DrawingImage x:Key="MinimizeIcon">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="White" Geometry="M240,926L240,866 721,866 721,926 240,926z"/>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+
+        <Style TargetType="Button" x:Key="ControlStyle">
+            <Setter Property="Foreground" Value="DarkGray"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Padding="{TemplateBinding Padding}" 
+                        SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="Border" x:Key="PanelStyle">
             <Setter Property="Background" Value="#171717"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
@@ -24,6 +73,7 @@
                     <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
                 </Setter.Value>
             </Setter>
+            
         </Style>
     </Application.Resources>
    
