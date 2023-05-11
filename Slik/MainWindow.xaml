@@ -83,6 +83,7 @@
                         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
                             <TextBox  Style="{StaticResource TextBoxStyle}">
                                 Press the + to import from file or clipboard dddddddddddddddddddddddddddddddddddd
+
                             </TextBox>
                         </ScrollViewer>
                     </Border>
