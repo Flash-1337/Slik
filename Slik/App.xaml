@@ -27,6 +27,52 @@
         </DrawingImage>
 
 
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="SelectionBrush" Value="#33FFFFFF"/>
+            <Setter Property="CaretBrush" Value="#FFFFFF"/>
+            <Setter Property="AcceptsReturn" Value="true"/>
+            <Setter Property="AcceptsTab" Value="true"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontFamily" Value="{StaticResource SpaceMono}"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style TargetType="Thumb">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border CornerRadius="3" Width="Auto" Height="Auto" Background="#262626"></Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ScrollBar">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Track Name="PART_Track" Grid.Row="0" IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb Margin="0,0,0,12" BorderBrush="Transparent"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
         <Style TargetType="Button" x:Key="ControlStyle">
             <Setter Property="Foreground" Value="DarkGray"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -62,7 +108,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style TargetType="Border" x:Key="PanelStyle">
             <Setter Property="Background" Value="#171717"/>
             <Setter Property="Margin" Value="10"/>
@@ -73,8 +119,8 @@
                     <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
                 </Setter.Value>
             </Setter>
-            
+
         </Style>
     </Application.Resources>
-   
+
 </Application>
