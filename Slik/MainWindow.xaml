@@ -79,15 +79,32 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Border Grid.Row="1" Style="{StaticResource PanelStyle}">
-                        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
-                            <TextBox  Style="{StaticResource TextBoxStyle}">
-                                Press the + to import from file or clipboard dddddddddddddddddddddddddddddddddddd
 
-                            </TextBox>
-                        </ScrollViewer>
+                    <Border Grid.Row="1" Style="{StaticResource PanelStyle}">
+
+                        <Grid>
+
+                            <TextBlock 
+            Padding="2"
+            Foreground="#616161"
+            TextAlignment="Left"
+            VerticalAlignment="Top"
+            FontFamily="{StaticResource SpaceMono}"
+            FontSize="10">
+            <Run Text="Input - " Foreground="Gray"/>
+            <Run Text="IDA vtable" Foreground="White"/>
+                            </TextBlock>
+
+
+                            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
+                                <TextBox  Style="{StaticResource TextBoxStyle}">
+                                    Press the + to import from file or clipboard dddddddddddddddddddddddddddddddddddd
+
+                                </TextBox>
+                            </ScrollViewer>
+                        </Grid>
                     </Border>
-                    
+
                     <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource PanelStyle}"/>
                     <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource PanelStyle}"/>
 
