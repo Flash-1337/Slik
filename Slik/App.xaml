@@ -37,8 +37,9 @@
             <Setter Property="AcceptsTab" Value="true"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
+            <Setter Property="Typography.StandardLigatures" Value="False"/>
             <Setter Property="FontFamily" Value="{StaticResource SpaceMono}"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -66,13 +67,16 @@
                         <Border Background="#262626" CornerRadius="3">
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}">
-                                    <Setter Property="Width" Value="300" />
                                     <Setter Property="Height" Value="7" />
+                                    <Setter Property="Width" Value="Auto" />
+                                    <Setter Property="MinWidth" Value="30px"/>
+                                    <Setter Property="Margin" Value="0 -4 0 -14"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type ScrollBar}}}" Value="Vertical">
                                             <Setter Property="Margin" Value="0,0,-4,0" />
                                             <Setter Property="Width" Value="7" />
-                                            <Setter Property="Height" Value="300" />
+                                            <Setter Property="Height" Value="Auto"/>
+                                            <Setter Property="MinHeight" Value="30px"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -183,11 +187,6 @@
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="CornerRadius" Value="10"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
-                </Setter.Value>
-            </Setter>
 
         </Style>
     </Application.Resources>

@@ -8,10 +8,12 @@
         Title="MainWindow"
         AllowsTransparency="True"
         WindowStyle="None"
-        Height="900"
-        Width="1600">
+        Height="810"
+        Width="1440">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="7" />
+    </WindowChrome.WindowChrome>
     <Grid x:Name="WindowGrid" Background="#FF101010" MouseDown="Grid_MouseDown">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="5*">
             </RowDefinition>
@@ -27,7 +29,7 @@
             FontFamily="{StaticResource SpaceMono}"
             FontSize="32">
             <TextBlock.Foreground>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#C7E4FF"/>
                     <GradientStop Offset="1" Color="#83C3FF"/>
                 </LinearGradientBrush>
@@ -73,26 +75,17 @@
 
                 <Grid Grid.Row="1">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
 
 
-                    <Border Grid.Row="1" Style="{StaticResource PanelStyle}">
+                    <Border Grid.Column="0" Style="{StaticResource PanelStyle}">
 
                         <Grid>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="5*"/>
                                 <RowDefinition Height="95*"/>
@@ -111,16 +104,18 @@
 
                             <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
                                           Grid.Row="1" 
-                                          Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
+                                          VerticalScrollBarVisibility="Auto"
+                                          HorizontalScrollBarVisibility="Auto"
+                                          Focusable="False"
+                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <TextBox Style="{StaticResource TextBoxStyle}">
-                                    Press the + to import from file or clipboarddddddddddddddddddddddddddddddddddddddddd
+                                    Press the + to import from file or clipboard
                                 </TextBox>
                             </ScrollViewer>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource PanelStyle}"/>
-                    <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource PanelStyle}"/>
+                    <Border Grid.Column="1" Style="{StaticResource PanelStyle}"/>
 
                 </Grid>
                 <Border Grid.Row="0" Style="{StaticResource PanelStyle}"/>
