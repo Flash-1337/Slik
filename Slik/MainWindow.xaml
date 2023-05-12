@@ -84,22 +84,27 @@
 
                         <Grid>
 
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="95*"/>
+                            </Grid.RowDefinitions>
+                            
                             <TextBlock 
-            Padding="2"
-            Foreground="#616161"
-            TextAlignment="Left"
-            VerticalAlignment="Top"
-            FontFamily="{StaticResource SpaceMono}"
-            FontSize="10">
-            <Run Text="Input - " Foreground="Gray"/>
-            <Run Text="IDA vtable" Foreground="White"/>
+                                Padding="3"
+                                Foreground="#616161"
+                                TextAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontFamily="{StaticResource SpaceMono}"
+                                FontSize="15">
+                            <Run Text="Input - " Foreground="Gray"/>
+                            <Run Text="IDA vTable" Foreground="White"/>
                             </TextBlock>
 
-
-                            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
-                                <TextBox  Style="{StaticResource TextBoxStyle}">
-                                    Press the + to import from file or clipboard dddddddddddddddddddddddddddddddddddd
-
+                            <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                                          Grid.Row="1" 
+                                          Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Focusable="False">
+                                <TextBox Style="{StaticResource TextBoxStyle}">
+                                    Press the + to import from file or clipboarddddddddddddddddddddddddddddddddddddddddd
                                 </TextBox>
                             </ScrollViewer>
                         </Grid>
