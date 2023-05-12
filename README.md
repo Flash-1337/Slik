@@ -1,16 +1,16 @@
 
-# Slik 
+# Slīk 
 
-Slik is a C# WPF application designed to make creating and maintaing cheats easier
+Slīk is a C# WPF application designed to make creating and maintaing cheats easier
 
 ## Badges
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 
 [![Language C#](https://img.shields.io/badge/Language-C%23-brightgreen)]()
-# Slik 
+# Slīk 
 
-Slik (Pronounced Sleek) is an IDE-Like application made to updating and creating cheat SDK's easier. 
+Slīk (Pronounced Sleek) is an IDE-Like application made to updating and creating cheat SDK's easier. 
 
 
 

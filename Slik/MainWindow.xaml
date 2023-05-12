@@ -20,14 +20,14 @@
         </Grid.RowDefinitions>
 
         <TextBlock 
-            Text="Slɪ́k"
+            Text="Slīk"
             Padding="10px"
             TextAlignment="Left"
             VerticalAlignment="Center"
             FontFamily="{StaticResource SpaceMono}"
             FontSize="32">
             <TextBlock.Foreground>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Offset="0" Color="#C7E4FF"/>
                     <GradientStop Offset="1" Color="#83C3FF"/>
                 </LinearGradientBrush>
@@ -35,8 +35,8 @@
         </TextBlock>
 
 
-        <TextBlock 
-            Padding="10"
+        <TextBlock
+            Grid.Row="0" Padding="10"
             Foreground="#616161"
             TextAlignment="Center"
             VerticalAlignment="Center"
@@ -47,11 +47,11 @@
         </TextBlock>
 
 
-        <Button x:Name="CloseButton" Click="CloseButton_Click" Margin="0,10,10,10" Style="{StaticResource ControlStyle}">
+        <Button Grid.Row="0" x:Name="CloseButton" Click="CloseButton_Click" Margin="0,10,10,10" Style="{StaticResource ControlStyle}">
             <Image Source="{DynamicResource CloseIcon}"/>
         </Button>
 
-        <Button x:Name="MinimizeButton" Margin="1530,0,0,0" Style="{StaticResource ControlStyle}" HorizontalAlignment="Left" Height="20" Click="MinimizeButton_Click">
+        <Button Grid.Row="0" x:Name="MinimizeButton" Margin="1530,0,0,0" Style="{StaticResource ControlStyle}" HorizontalAlignment="Left" Height="20" Click="MinimizeButton_Click">
             <Image Source="{DynamicResource MinimizeIcon}"/>
         </Button>
 
@@ -73,9 +73,14 @@
 
                 <Grid Grid.Row="1">
 
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
 
@@ -84,6 +89,10 @@
 
                         <Grid>
 
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="5*"/>
                                 <RowDefinition Height="95*"/>
