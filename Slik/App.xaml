@@ -27,7 +27,7 @@
         </DrawingImage>
 
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBoxBase">
+        <Style x:Key="SyntaxTextBoxStyle" TargetType="TextBoxBase">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -40,6 +40,7 @@
             <Setter Property="Typography.StandardLigatures" Value="False"/>
             <Setter Property="FontFamily" Value="{StaticResource SpaceMono}"/>
             <Setter Property="FontSize" Value="14"/>
+            
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
