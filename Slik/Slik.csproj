@@ -33,4 +33,8 @@
     <Resource Include="Resources\Icons\minimize.svg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
 </Project>

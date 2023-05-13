@@ -27,7 +27,7 @@
         </DrawingImage>
 
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Style x:Key="TextBoxStyle" TargetType="TextBoxBase">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -183,11 +183,21 @@
         </Style>
 
         <Style TargetType="Border" x:Key="PanelStyle">
-            <Setter Property="Background" Value="#171717"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="CornerRadius" Value="10"/>
-
+        </Style>
+        <Style TargetType="Rectangle" x:Key="PanelRectStyle">
+            <Setter Property="Fill" Value="#171717"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="RadiusX" Value="10"/>
+            <Setter Property="RadiusY" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 

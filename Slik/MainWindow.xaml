@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syntax="clr-namespace:UI.SyntaxBox;assembly=UI.SyntaxBox"
         xmlns:local="clr-namespace:Slik"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -64,7 +65,10 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Row="0" Style="{StaticResource PanelStyle}"/>
+            <Grid Grid.Row="0">
+                <Rectangle Style="{StaticResource PanelRectStyle}"/>
+                <Border Style="{StaticResource PanelStyle}"/>
+            </Grid>
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -81,17 +85,16 @@
                     </Grid.ColumnDefinitions>
 
 
+                    <Grid Grid.Column="0">
+                        <Rectangle Style="{StaticResource PanelRectStyle}"/>
+                        <Border Style="{StaticResource PanelStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="95*"/>
+                                </Grid.RowDefinitions>
 
-                    <Border Grid.Column="0" Style="{StaticResource PanelStyle}">
-
-                        <Grid>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="95*"/>
-                            </Grid.RowDefinitions>
-                            
-                            <TextBlock 
+                                <TextBlock 
                                 Padding="3"
                                 Foreground="#616161"
                                 TextAlignment="Left"
@@ -99,26 +102,63 @@
                                 FontFamily="{StaticResource SpaceMono}"
                                 FontSize="15">
                             <Run Text="Input - " Foreground="Gray"/>
-                            <Run Text="IDA vTable" Foreground="White"/>
-                            </TextBlock>
+                            <Run Text="IDA vtable" Foreground="White"/>
+                                </TextBlock>
 
-                            <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
                                           Grid.Row="1" 
                                           VerticalScrollBarVisibility="Auto"
                                           HorizontalScrollBarVisibility="Auto"
                                           Focusable="False"
                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <TextBox Style="{StaticResource TextBoxStyle}">
-                                    Press the + to import from file or clipboard
-                                </TextBox>
-                            </ScrollViewer>
-                        </Grid>
-                    </Border>
+                                    <TextBox Style="{StaticResource TextBoxStyle}" Name="LeftTextBox" PreviewTextInput="LeftTextBox_OnTextInput">
+                                        Press the + to import from file or clipboard
+                                    </TextBox>
+                                </ScrollViewer>
+                            </Grid>
+                        </Border>
+                    </Grid>
 
-                    <Border Grid.Column="1" Style="{StaticResource PanelStyle}"/>
+                    <Grid Grid.Column="1">
+                        <Rectangle Style="{StaticResource PanelRectStyle}"/>
+                        <Border Style="{StaticResource PanelStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="95*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock 
+                                    Padding="3"
+                                    Foreground="#616161"
+                                    TextAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    FontFamily="{StaticResource SpaceMono}"
+                                    FontSize="15">
+                                    <Run Text="Output -" Foreground="Gray"/>
+                                    <Run Text="C++" Foreground="White"/>
+                                    <Button Content="vtable" Name="VtableOrIndexesButton" Click="VtableOrIndexesButton_OnClick"></Button>
+                                </TextBlock>
+
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                                              Grid.Row="1" 
+                                              VerticalScrollBarVisibility="Auto"
+                                              HorizontalScrollBarVisibility="Auto"
+                                              Focusable="False"
+                                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <TextBox Style="{StaticResource TextBoxStyle}" Name="RightTextBox">
+                                        Press the + to import from file or clipboard
+                                    </TextBox>
+                                </ScrollViewer>
+                            </Grid>
+                        </Border>
+                    </Grid>
 
                 </Grid>
-                <Border Grid.Row="0" Style="{StaticResource PanelStyle}"/>
+                <Grid Grid.Row="0">
+                    <Rectangle Style="{StaticResource PanelRectStyle}"/>
+                    <Border Style="{StaticResource PanelStyle}"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
