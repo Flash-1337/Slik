@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syntax="clr-namespace:UI.SyntaxBox;assembly=UI.SyntaxBox"
         xmlns:local="clr-namespace:Slik"
+        xmlns:syntaxBox="clr-namespace:UI.SyntaxBox"
         mc:Ignorable="d"
         Title="MainWindow"
         AllowsTransparency="True"
@@ -111,7 +112,7 @@
                                           HorizontalScrollBarVisibility="Auto"
                                           Focusable="False"
                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <TextBox Style="{StaticResource SyntaxTextBoxStyle}" Name="LeftTextBox" PreviewTextInput="LeftTextBox_OnTextInput">
+                                    <TextBox Style="{StaticResource SyntaxTextBoxStyle}" Name="LeftTextBox" TextChanged="LeftTextBox_OnTextInput">
                                         Press the + to import from file or clipboard
                                     </TextBox>
                                 </ScrollViewer>
@@ -148,8 +149,35 @@
                                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                     
                                     <TextBox Style="{StaticResource SyntaxTextBoxStyle}" Name="RightTextBox"
-                                             syntax:SyntaxBox.Enable="True"
-                                             syntax:SyntaxBox.ExpandTabs="True">
+                                             syntaxBox:SyntaxBox.Enable="True"
+                                             syntaxBox:SyntaxBox.ExpandTabs="True"
+                                             syntaxBox:SyntaxBox.ShowLineNumbers="False"
+                                             syntaxBox:SyntaxBox.LineNumbersForeground="Transparent"
+                                    >
+                                    <syntaxBox:SyntaxBox.SyntaxDrivers>
+                                            <syntaxBox:SyntaxConfig>
+                                                <!-- Comments -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                  Foreground="Green"
+                                                                  Pattern="//.*"
+                                                />
+                                                <!-- Function names -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                     Foreground="Yellow"
+                                                                     Pattern="^(?:virtual [^ ]*) [^\(]*"
+                                                />
+                                                <!-- Primitives -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                  Foreground="DodgerBlue"
+                                                                  Pattern="^virtual [a-z]*"
+                                                />
+                                                <!-- Classes -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                  Foreground="LimeGreen"
+                                                                  Pattern="^virtual [A-Z]+[a-z]*"
+                                                />
+                                            </syntaxBox:SyntaxConfig>
+                                        </syntaxBox:SyntaxBox.SyntaxDrivers>
                                         Press the + to import from file or clipboard
                                     </TextBox>
                                 </ScrollViewer>

@@ -241,7 +241,9 @@ namespace Slik
 
                 lastFunctionName = func.Name;
             }
-            
+
+            if (RightTextBox == null)
+                return;
             RightTextBox.Text = (string)VtableOrIndexesButton.Content == "vtable" ? string.Join('\n', functionNames) : string.Join('\n', functionIndexes);
 
             Debug.WriteLine("Converted");
@@ -252,7 +254,7 @@ namespace Slik
             VtableOrIndexesButton.Content = (string)VtableOrIndexesButton.Content == "vtable" ? "indexes" : "vtable";
         }
 
-        private void LeftTextBox_OnTextInput(object sender, TextCompositionEventArgs e)
+        private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)
         {
             Convert();
         }

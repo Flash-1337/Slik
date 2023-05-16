@@ -37,4 +37,18 @@
     <Folder Include="Themes\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="UI.SyntaxBox">
+      <HintPath>SyntaxBoxDLL\UI.SyntaxBox.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
