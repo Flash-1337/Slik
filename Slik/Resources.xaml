@@ -42,8 +42,10 @@
     </ControlTemplate>
 
     <!-- Control template applied to any textbox with attached syntax highlighting -->
-    <ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type TextBox}">
+    <ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type TextBox}"
+                     >
         <Border x:Name="border"
+            Typography.StandardLigatures="{TemplateBinding Typography.StandardLigatures}"
             BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
             Background="{TemplateBinding Background}"

@@ -108,7 +108,7 @@ namespace Slik
             if (name.StartsWith("is") || name.StartsWith("has") || name.StartsWith("can"))
             {
                 // If the function name starts with "is" or "has", it is likely to return a boolean value
-                return "virtual bool";
+                return "virtual Bool";
             }
 
             // If the function name does not match any of the above patterns, it is likely to be a normal void
@@ -116,7 +116,7 @@ namespace Slik
         }
 
         public static string? MergePath;
-        public static string? ReturnGuess = "int";
+        public static string? ReturnGuess = "void";
         public static bool IncludeIndexes = true;
         public static bool ThirtyTwoBit;
 
@@ -257,6 +257,27 @@ namespace Slik
         private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)
         {
             Convert();
+        }
+
+        private void HorizontalScrollShift(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.Modifiers != ModifierKeys.Shift)
+                return;
+            
+            e.Handled = true;
+
+            if (e.Delta < 0)
+            {
+                ((ScrollViewer)sender).LineRight();
+                ((ScrollViewer)sender).LineRight();
+                ((ScrollViewer)sender).LineRight();
+            }
+            else
+            {
+                ((ScrollViewer)sender).LineLeft();
+                ((ScrollViewer)sender).LineLeft();
+                ((ScrollViewer)sender).LineLeft();
+            }
         }
     }
 }

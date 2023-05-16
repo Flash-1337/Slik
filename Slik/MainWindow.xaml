@@ -106,14 +106,113 @@
                                     +
                                     </TextBlock>
                                 </Border>
-                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="HorizontalScrollShift"
                                           Grid.Row="1" 
                                           VerticalScrollBarVisibility="Auto"
                                           HorizontalScrollBarVisibility="Auto"
                                           Focusable="False"
                                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <TextBox Style="{StaticResource SyntaxTextBoxStyle}" Name="LeftTextBox" TextChanged="LeftTextBox_OnTextInput">
-                                        Press the + to import from file or clipboard
+                                    <TextBox Style="{StaticResource SyntaxTextBoxStyle}" Name="LeftTextBox" TextChanged="LeftTextBox_OnTextInput" Text=".rodata:00000000007AE9C0 ; `vtable for'Player&#x0a;
+.rodata:00000000007AE9C0 _ZTV6Player     dq 0                    ; offset to this&#x0a;
+.rodata:00000000007AE9C8                 dq offset _ZTI6Player   ; `typeinfo for'Player&#x0a;
+.rodata:00000000007AE9D0 off_7AE9D0      dq offset _ZNK5Actor13getStatusFlagE10ActorFlags&#x0a;
+.rodata:00000000007AE9D0                                         ; DATA XREF: Player::Player(Level &amp;,PacketSender &amp;,GameType,NetworkIdentifier const&amp;,SubClientId,mce::UUID,std::string const&amp;,std::string const&amp;,std::unique_ptr&#x0a;
+                                        &lt;Certificate&gt;,EntityContext &amp;,std::string const&amp;,std::string const&amp;)+37↓o&#x0a;
+.rodata:00000000007AE9D0                                         ; Player::~Player()+10↓o&#x0a;
+.rodata:00000000007AE9D0                                         ; Actor::getStatusFlag(ActorFlags)&#x0a;
+.rodata:00000000007AE9D8                 dq offset _ZN5Actor13setStatusFlagE10ActorFlagsb ; Actor::setStatusFlag(ActorFlags,bool)&#x0a;
+.rodata:00000000007AE9E0                 dq offset _ZN5Actor16getLastHurtByMobEv ; Actor::getLastHurtByMob(void)&#x0a;
+.rodata:00000000007AE9E8                 dq offset _ZN5Actor16setLastHurtByMobEP3Mob ; Actor::setLastHurtByMob(Mob *)&#x0a;
+.rodata:00000000007AE9F0                 dq offset _ZN5Actor19getLastHurtByPlayerEv ; Actor::getLastHurtByPlayer(void)&#x0a;
+.rodata:00000000007AE9F8                 dq offset _ZN5Actor19setLastHurtByPlayerEP6Player ; Actor::setLastHurtByPlayer(Player *)&#x0a;
+.rodata:00000000007AEA00                 dq offset _ZN5Actor14getLastHurtMobEv ; Actor::getLastHurtMob(void)&#x0a;
+.rodata:00000000007AEA08                 dq offset _ZN5Actor14setLastHurtMobEPS_ ; Actor::setLastHurtMob(Actor*)&#x0a;
+.rodata:00000000007AEA10                 dq offset _ZN3Mob10outOfWorldEv ; Mob::outOfWorld(void)&#x0a;
+.rodata:00000000007AEA18                 dq offset _ZN6Player15reloadHardcodedEN5Actor20InitializationMethodERK20VariantParameterList ; Player::reloadHardcoded(Actor::InitializationMethod,VariantParameterList const&amp;)&#x0a;
+.rodata:00000000007AEA20                 dq offset _ZN3Mob21reloadHardcodedClientEN5Actor20InitializationMethodERK20VariantParameterList ; Mob::reloadHardcodedClient(Actor::InitializationMethod,VariantParameterList const&amp;)&#x0a;
+.rodata:00000000007AEA28                 dq offset _ZN6Player20initializeComponentsEN5Actor20InitializationMethodERK20VariantParameterList ; Player::initializeComponents(Actor::InitializationMethod,VariantParameterList const&amp;)&#x0a;
+.rodata:00000000007AEA30                 dq offset _ZN5Actor16reloadComponentsENS_20InitializationMethodERK20VariantParameterList ; Actor::reloadComponents(Actor::InitializationMethod,VariantParameterList const&amp;)&#x0a;
+.rodata:00000000007AEA38                 dq offset _ZN6Player23_serverInitItemStackIdsEv ; Player::_serverInitItemStackIds(void)&#x0a;
+.rodata:00000000007AEA40                 dq offset _ZN3Mob14_doInitialMoveEv ; Mob::_doInitialMove(void)&#x0a;
+.rodata:00000000007AEA48                 dq offset _ZNK3Mob12hasComponentERK12HashedString ; Mob::hasComponent(HashedString const&amp;)&#x0a;
+.rodata:00000000007AEA50                 dq offset _ZN6PlayerD2Ev ; Player::~Player()&#x0a;
+.rodata:00000000007AEA58                 dq offset _ZN6PlayerD0Ev ; Player::~Player()&#x0a;
+.rodata:00000000007AEA60                 dq offset _ZN6Player12resetUserPosEb ; Player::resetUserPos(bool)&#x0a;
+.rodata:00000000007AEA68                 dq offset _ZN5Actor18getOwnerEntityTypeEv ; Actor::getOwnerEntityType(void)&#x0a;
+.rodata:00000000007AEA70                 dq offset _ZN6Player6removeEv ; Player::remove(void)&#x0a;
+.rodata:00000000007AEA78                 dq offset _ZN5Actor6setPosERK4Vec3 ; Actor::setPos(Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEA80                 dq offset _ZNK5Actor33isRuntimePredictedMovementEnabledEv ; Actor::isRuntimePredictedMovementEnabled(void)&#x0a;
+.rodata:00000000007AEA88                 dq offset _ZNK5Actor26getPredictedMovementValuesEv ; Actor::getPredictedMovementValues(void)&#x0a;
+.rodata:00000000007AEA90                 dq offset _ZNK5Actor11getPositionEv ; Actor::getPosition(void)&#x0a;
+.rodata:00000000007AEA98                 dq offset _ZNK5Actor10getPosPrevEv ; Actor::getPosPrev(void)&#x0a;
+.rodata:00000000007AEAA0                 dq offset _ZNK5Actor18getPosExtrapolatedEf ; Actor::getPosExtrapolated(float)&#x0a;
+.rodata:00000000007AEAA8                 dq offset _ZNK6Player12getAttachPosE13ActorLocationf ; Player::getAttachPos(ActorLocation,float)&#x0a;
+.rodata:00000000007AEAB0                 dq offset _ZNK5Actor12getFiringPosEv ; Actor::getFiringPos(void)&#x0a;
+.rodata:00000000007AEAB8                 dq offset _ZN6Player4moveERK4Vec3 ; Player::move(Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEAC0                 dq offset _ZNK6Player4moveER19IActorMovementProxyRK4Vec3 ; Player::move(IActorMovementProxy &amp;,Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEAC8                 dq offset _ZNK5Actor29getInterpolatedRidingPositionEf ; Actor::getInterpolatedRidingPosition(float)&#x0a;
+.rodata:00000000007AEAD0                 dq offset _ZNK3Mob22getInterpolatedBodyRotEf ; Mob::getInterpolatedBodyRot(float)&#x0a;
+.rodata:00000000007AEAD8                 dq offset _ZNK3Mob22getInterpolatedHeadRotEf ; Mob::getInterpolatedHeadRot(float)&#x0a;
+.rodata:00000000007AEAE0                 dq offset _ZNK3Mob22getInterpolatedBodyYawEf ; Mob::getInterpolatedBodyYaw(float)&#x0a;
+.rodata:00000000007AEAE8                 dq offset _ZNK3Mob29getYawSpeedInDegreesPerSecondEv ; Mob::getYawSpeedInDegreesPerSecond(void)&#x0a;
+.rodata:00000000007AEAF0                 dq offset _ZNK5Actor28getInterpolatedWalkAnimSpeedEf ; Actor::getInterpolatedWalkAnimSpeed(float)&#x0a;
+.rodata:00000000007AEAF8                 dq offset _ZNK6Player27getInterpolatedRidingOffsetEfi ; Player::getInterpolatedRidingOffset(float,int)&#x0a;
+.rodata:00000000007AEB00                 dq offset _ZN3Mob17resetInterpolatedEv ; Mob::resetInterpolated(void)&#x0a;
+.rodata:00000000007AEB08                 dq offset _ZN5Actor18updateEntityInsideERK4AABB ; Actor::updateEntityInside(AABB const&amp;)&#x0a;
+.rodata:00000000007AEB10                 dq offset _ZN5Actor18updateEntityInsideEv ; Actor::updateEntityInside(void)&#x0a;
+.rodata:00000000007AEB18                 dq offset _ZNK6Player12isFireImmuneEv ; Player::isFireImmune(void)&#x0a;
+.rodata:00000000007AEB20                 dq offset _ZNK5Actor19breaksFallingBlocksEv ; Actor::breaksFallingBlocks(void)&#x0a;
+.rodata:00000000007AEB28                 dq offset _ZN3Mob15blockedByShieldERK17ActorDamageSourceR5Actor ; Mob::blockedByShield(ActorDamageSource const&amp;,Actor &amp;)&#x0a;
+.rodata:00000000007AEB30                 dq offset _ZN5Actor16canDisableShieldEv ; Actor::canDisableShield(void)&#x0a;
+.rodata:00000000007AEB38                 dq offset _ZN6Player10teleportToERK4Vec3biib ; Player::teleportTo(Vec3 const&amp;,bool,int,int,bool)&#x0a;
+.rodata:00000000007AEB40                 dq offset _ZN5Actor13tryTeleportToERK4Vec3bbii ; Actor::tryTeleportTo(Vec3 const&amp;,bool,bool,int,int)&#x0a;
+.rodata:00000000007AEB48                 dq offset _ZN5Actor19chorusFruitTeleportERK4Vec3 ; Actor::chorusFruitTeleport(Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEB50                 dq offset _ZN5Actor10lerpMotionERK4Vec3 ; Actor::lerpMotion(Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEB58                 dq offset _ZN6Player23tryCreateAddActorPacketEv ; Player::tryCreateAddActorPacket(void)&#x0a;
+.rodata:00000000007AEB60                 dq offset _ZN6Player10normalTickEv ; Player::normalTick(void)&#x0a;
+.rodata:00000000007AEB68                 dq offset _ZN3Mob8baseTickEv ; Mob::baseTick(void)&#x0a;
+.rodata:00000000007AEB70                 dq offset _ZN6Player13passengerTickEv ; Player::passengerTick(void)&#x0a;
+.rodata:00000000007AEB78                 dq offset _ZN5Actor17positionPassengerERS_f ; Actor::positionPassenger(Actor&amp;,float)&#x0a;
+.rodata:00000000007AEB80                 dq offset _ZN3Mob11startRidingER5Actor ; Mob::startRiding(Actor &amp;)&#x0a;
+.rodata:00000000007AEB88                 dq offset _ZN3Mob12addPassengerER5Actor ; Mob::addPassenger(Actor &amp;)&#x0a;
+.rodata:00000000007AEB90                 dq offset _ZN5Actor21flagPassengerToRemoveERS_ ; Actor::flagPassengerToRemove(Actor&amp;)&#x0a;
+.rodata:00000000007AEB98                 dq offset _ZNK5Actor10getExitTipERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9InputMode19NewInteractionModel ; Actor::getExitTip(std::string const&amp;,InputMode,NewInteractionModel)&#x0a;
+.rodata:00000000007AEBA0                 dq offset _ZNK5Actor22getEntityLocNameStringB5cxx11Ev ; Actor::getEntityLocNameString(void)&#x0a;
+.rodata:00000000007AEBA8                 dq offset _ZNK5Actor10intersectsERK4Vec3S2_ ; Actor::intersects(Vec3 const&amp;,Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEBB0                 dq offset _ZNK5Actor8isInWallEv ; Actor::isInWall(void)&#x0a;
+.rodata:00000000007AEBB8                 dq offset _ZNK5Actor11isInvisibleEv ; Actor::isInvisible(void)&#x0a;
+.rodata:00000000007AEBC0                 dq offset _ZNK5Actor14canShowNameTagEv ; Actor::canShowNameTag(void)&#x0a;
+.rodata:00000000007AEBC8                 dq offset _ZNK5Actor18canExistInPeacefulEv ; Actor::canExistInPeaceful(void)&#x0a;
+.rodata:00000000007AEBD0                 dq offset _ZN5Actor17setNameTagVisibleEb ; Actor::setNameTagVisible(bool)&#x0a;
+.rodata:00000000007AEBD8                 dq offset _ZNK5Actor10getNameTagB5cxx11Ev ; Actor::getNameTag(void)&#x0a;
+.rodata:00000000007AEBE0                 dq offset _ZNK5Actor16getNameTagAsHashEv ; Actor::getNameTagAsHash(void)&#x0a;
+.rodata:00000000007AEBE8                 dq offset _ZNK6Player19getFormattedNameTagB5cxx11Ev ; Player::getFormattedNameTag(void)&#x0a;
+.rodata:00000000007AEBF0                 dq offset _ZN5Actor22filterFormattedNameTagERK18UIProfanityContext ; Actor::filterFormattedNameTag(UIProfanityContext const&amp;)&#x0a;
+.rodata:00000000007AEBF8                 dq offset _ZN5Actor10setNameTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE ; Actor::setNameTag(std::string const&amp;)&#x0a;
+.rodata:00000000007AEC00                 dq offset _ZNK6Player20getAlwaysShowNameTagEv ; Player::getAlwaysShowNameTag(void)&#x0a;
+.rodata:00000000007AEC08                 dq offset _ZN5Actor11setScoreTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE ; Actor::setScoreTag(std::string const&amp;)&#x0a;
+.rodata:00000000007AEC10                 dq offset _ZNK5Actor11getScoreTagB5cxx11Ev ; Actor::getScoreTag(void)&#x0a;
+.rodata:00000000007AEC18                 dq offset _ZNK5Actor9isInWaterEv ; Actor::isInWater(void)&#x0a;
+.rodata:00000000007AEC20                 dq offset _ZNK5Actor8isInLavaERK17IConstBlockSource ; Actor::isInLava(IConstBlockSource const&amp;)&#x0a;
+.rodata:00000000007AEC28                 dq offset _ZNK5Actor13isUnderLiquidE12MaterialType ; Actor::isUnderLiquid(MaterialType)&#x0a;
+.rodata:00000000007AEC30                 dq offset _ZNK5Actor11isOverWaterEv ; Actor::isOverWater(void)&#x0a;
+.rodata:00000000007AEC38                 dq offset _ZN6Player34setBlockMovementSlowdownMultiplierERK11BlockLegacyRK4Vec3 ; Player::setBlockMovementSlowdownMultiplier(BlockLegacy const&amp;,Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEC40                 dq offset _ZN5Actor36resetBlockMovementSlowdownMultiplierEv ; Actor::resetBlockMovementSlowdownMultiplier(void)&#x0a;
+.rodata:00000000007AEC48                 dq offset _ZNK6Player15getCameraOffsetEv ; Player::getCameraOffset(void)&#x0a;
+.rodata:00000000007AEC50                 dq offset _ZN5Actor19getShadowHeightOffsEv ; Actor::getShadowHeightOffs(void)&#x0a;
+.rodata:00000000007AEC58                 dq offset _ZNK6Player15getShadowRadiusEv ; Player::getShadowRadius(void)&#x0a;
+.rodata:00000000007AEC60                 dq offset _ZNK5Actor17getHeadLookVectorEf ; Actor::getHeadLookVector(float)&#x0a;
+.rodata:00000000007AEC68                 dq offset _ZNK5Actor15canSeeInvisibleEv ; Actor::canSeeInvisible(void)&#x0a;
+.rodata:00000000007AEC70                 dq offset _ZNK5Actor6canSeeERKS_ ; Actor::canSee(Actor const&amp;)&#x0a;
+.rodata:00000000007AEC78                 dq offset _ZNK5Actor6canSeeERK4Vec3 ; Actor::canSee(Vec3 const&amp;)&#x0a;
+.rodata:00000000007AEC80                 dq offset _ZNK6Player34canInteractWithOtherEntitiesInGameEv ; Player::canInteractWithOtherEntitiesInGame(void)&#x0a;
+.rodata:00000000007AEC88                 dq offset _ZN5Actor8isSkyLitEf ; Actor::isSkyLit(float)&#x0a;
+.rodata:00000000007AEC90                 dq offset _ZNK5Actor13getBrightnessEfRK17IConstBlockSource ; Actor::getBrightness(float,IConstBlockSource const&amp;)&#x0a;
+.rodata:00000000007AEC98                 dq offset _ZN5Actor22interactPreventDefaultEv ; Actor::interactPreventDefault(void)&#x0a;
+.rodata:00000000007AECA0                 dq offset _ZN5Actor11playerTouchER6Player ; Actor::playerTouch(Player &amp;)&#x0a;
+.rodata:00000000007AECA8                 dq offset _ZN5Actor19onAboveBubbleColumnEb ; Actor::onAboveBubbleColumn(bool)&#x0a;
+.rodata:00000000007AECB0                 dq offset _ZN5Actor20onInsideBubbleColumnEb ; Actor::onInsideBubbleColumn(bool)&#x0a;
+.rodata:00000000007AECB8                 dq offset _ZNK6Player10isImmobileEv ; Player::isImmobile(void)&#x0a;">
                                     </TextBox>
                                 </ScrollViewer>
                             </Grid>
@@ -138,7 +237,7 @@
 									<Run Text="C++" Foreground="White"/>
 									<Button Content="vtable" Name="VtableOrIndexesButton" Click="VtableOrIndexesButton_OnClick"></Button>
                                 </TextBlock>
-                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="HorizontalScrollShift"
                                               Grid.Row="1" 
                                               VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Auto"
@@ -152,25 +251,35 @@
                                     >
                                         <syntaxBox:SyntaxBox.SyntaxDrivers>
                                             <syntaxBox:SyntaxConfig>
+                                                <!-- Any other text -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                  Foreground="#d4d4d4"
+                                                                  Pattern=".*"
+                                                />
                                                 <!-- Comments -->
                                                 <syntaxBox:RegexRule Op="Line"
-                                                                  Foreground="Green"
+                                                                  Foreground="#66a848"
                                                                   Pattern="//.*"
                                                 />
                                                 <!-- Function names -->
                                                 <syntaxBox:RegexRule Op="Line"
-                                                                     Foreground="Yellow"
+                                                                     Foreground="#e3e3a0"
                                                                      Pattern="^(?:virtual [^ ]*) [^\(]*"
                                                 />
-                                                <!-- Primitives -->
+                                                <!-- Destructor -->
                                                 <syntaxBox:RegexRule Op="Line"
-                                                                  Foreground="DodgerBlue"
-                                                                  Pattern="^virtual [a-z]*"
+                                                                     Foreground="#d4d4d4"
+                                                                     Pattern="~+"
                                                 />
                                                 <!-- Classes -->
                                                 <syntaxBox:RegexRule Op="Line"
-                                                                  Foreground="LimeGreen"
+                                                                  Foreground="#42d7b9"
                                                                   Pattern="^virtual [A-Z]+[a-z]*"
+                                                />
+                                                <!-- Primitives and modifiers are blue -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                  Foreground="#489ee5"
+                                                                  Pattern="^virtual [a-z]*"
                                                 />
                                             </syntaxBox:SyntaxConfig>
                                         </syntaxBox:SyntaxBox.SyntaxDrivers>

@@ -31,14 +31,14 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="SelectionBrush" Value="#33FFFFFF"/>
+            <Setter Property="SelectionBrush" Value="#66FFFFFF"/>
             <Setter Property="CaretBrush" Value="#FFFFFF"/>
             <Setter Property="AcceptsReturn" Value="true"/>
             <Setter Property="AcceptsTab" Value="true"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Typography.StandardLigatures" Value="False"/>
-            <Setter Property="FontFamily" Value="{StaticResource SpaceMono}"/>
+            <Setter Property="FontFamily" Value="Cascadia Code Semilight"/>
             <Setter Property="FontSize" Value="14"/>
             
             <Setter Property="Template">
@@ -70,7 +70,7 @@
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="Height" Value="7" />
                                     <Setter Property="Width" Value="Auto" />
-                                    <Setter Property="MinWidth" Value="30px"/>
+                                    <Setter Property="MinWidth" Value="7"/>
                                     <Setter Property="Margin" Value="0 -4 0 -14"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type ScrollBar}}}" Value="Vertical">
