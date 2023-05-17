@@ -106,7 +106,7 @@
                                     +
                                     </TextBlock>
                                 </Border>
-                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="HorizontalScrollShift"
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="LeftRightBoxesScrollPreview" ScrollChanged="LeftRightBoxesScroll" Name="LeftScrollViewer"
                                           Grid.Row="1" 
                                           VerticalScrollBarVisibility="Auto"
                                           HorizontalScrollBarVisibility="Auto"
@@ -237,7 +237,7 @@
 									<Run Text="C++" Foreground="White"/>
 									<Button Content="vtable" Name="VtableOrIndexesButton" Click="VtableOrIndexesButton_OnClick"></Button>
                                 </TextBlock>
-                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="HorizontalScrollShift"
+                                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" PreviewMouseWheel="LeftRightBoxesScrollPreview" ScrollChanged="LeftRightBoxesScroll" Name="RightScrollViewer"
                                               Grid.Row="1" 
                                               VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Auto"
