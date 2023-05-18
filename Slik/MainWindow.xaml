@@ -274,12 +274,27 @@
                                                 <!-- Classes -->
                                                 <syntaxBox:RegexRule Op="Line"
                                                                   Foreground="#42d7b9"
-                                                                  Pattern="^virtual [A-Z]+[a-z]*"
+                                                                  Pattern="^virtual [A-Z]+[a-zA-Z]*"
                                                 />
-                                                <!-- Primitives and modifiers are blue -->
+                                                <!-- Primitives and modifiers -->
                                                 <syntaxBox:RegexRule Op="Line"
-                                                                  Foreground="#489ee5"
-                                                                  Pattern="^virtual [a-z]*"
+                                                                     Foreground="#489ee5"
+                                                                     Pattern="^virtual [a-z]*"
+                                                />
+                                                <!-- Primitives and modifiers in args -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                     Foreground="#489ee5"
+                                                                     Pattern="(?&lt;=\(|,)[a-z]+"
+                                                />
+                                                <!-- Classes in args -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                     Foreground="#42d7b9"
+                                                                     Pattern="(?&lt;=\(|,)[A-Z_]+[a-zA-Z0-9_]*"
+                                                />
+                                                <!-- const& -->
+                                                <syntaxBox:RegexRule Op="Line"
+                                                                     Foreground="#489ee5"
+                                                                     Pattern=" const(?=&(\)|,))"
                                                 />
                                             </syntaxBox:SyntaxConfig>
                                         </syntaxBox:SyntaxBox.SyntaxDrivers>
