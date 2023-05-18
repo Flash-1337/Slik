@@ -270,17 +270,33 @@ public partial class MainWindow : Window
     {
         HorizontalScrollShift(sender, e);
     }
-    private bool Sent;
+    private int Sent;
     private void LeftRightBoxesScroll(object sender, ScrollChangedEventArgs e)
     {
-        // TODO: fix this, it still triggers them both for some reason
-        // TODO: add a toggle for horizontal scrolling, it's sort of annoying sometimes
-        if (Sent)
+        //get the stack trace
+        StackTrace stackTrace = new();
+        Debug.WriteLine(stackTrace.GetFrame(10)!.GetMethod()!.Name);
+        string name = ((ScrollViewer)sender).Name;
+        if (Sent == 3)
+        {
+            Sent = 0;
             return;
+        }
+        if (Sent == 2 && name == "LeftScrollViewer")
+        {
+            Sent = 0;
+            return;
+        } else if (Sent == 1 && name == "RightScrollViewer")
+        {
+            Sent = 0;
+            return;
+        }
 
-        Sent = true;
+        // TODO: add a toggle for horizontal scrolling, it's sort of annoying sometimes
+        
         if (((ScrollViewer)sender).Name == "LeftScrollViewer")
         {
+            Sent = 1;
             RightScrollViewer.ScrollToHorizontalOffset(Math.Min(LeftScrollViewer.HorizontalOffset, RightScrollViewer.ScrollableWidth));
             //use inOutMap to scroll the right box to have the line at the top that the left box's line at the top is mapped to
 
@@ -298,9 +314,14 @@ public partial class MainWindow : Window
                 final += remainder;
             // TODO: scroll less based on the amount of lines that match to the same line on the right (a multiplier on the remainder?)
             // set scroll amount of right box
-            RightScrollViewer.ScrollToVerticalOffset(final);
+            if (final != 0)
+            {
+                RightScrollViewer.ScrollToVerticalOffset(final);
+
+            }
         } else
         {
+            Sent = 2;
             LeftScrollViewer.ScrollToHorizontalOffset(Math.Min(RightScrollViewer.HorizontalOffset, LeftScrollViewer.ScrollableWidth));
 
             double scrollAmount = RightScrollViewer.VerticalOffset;
@@ -313,7 +334,6 @@ public partial class MainWindow : Window
             // TODO: scroll more based on the amount of lines to skip (a multiplier on the remainder?)
             LeftScrollViewer.ScrollToVerticalOffset(final);
         }
-        Sent = false;
     }
 
     private void HorizontalScrollShift(object sender, MouseWheelEventArgs e)
@@ -323,19 +343,23 @@ public partial class MainWindow : Window
             
         e.Handled = true;
 
-        Sent = true;
         if (e.Delta < 0)
         {
+            Sent = 3;
             ((ScrollViewer)sender).LineRight();
+            Sent = 3;
             ((ScrollViewer)sender).LineRight();
+            Sent = 3;
             ((ScrollViewer)sender).LineRight();
         }
         else
         {
+            Sent = 3;
             ((ScrollViewer)sender).LineLeft();
+            Sent = 3;
             ((ScrollViewer)sender).LineLeft();
+            Sent = 3;
             ((ScrollViewer)sender).LineLeft();
         }
-        Sent = false;
     }
 }
