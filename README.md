@@ -10,7 +10,7 @@ Slīk is a C# WPF application designed to make creating and maintaing cheats eas
 [![Language C#](https://img.shields.io/badge/Language-C%23-brightgreen)]()
 # Slīk 
 
-Slīk (Pronounced Sleek) is an IDE-Like application made to updating and creating cheat SDK's easier. 
+Slīk (Pronounced Sleek) is an IDE-Like application made to update and/or create cheat SDK's easier. 
 
 
 
