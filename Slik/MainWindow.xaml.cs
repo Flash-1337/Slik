@@ -48,7 +48,7 @@ public partial class MainWindow : Window
         // Extract the class name, method name, and parameters from the regex match
         string className = match.Groups["class"].Value;
         string methodName = match.Groups["method"].Value;
-        string methodParams = match.Groups["params"].Value;
+        string methodParams = match.Groups["params"].Value.Replace(",", ", ").Replace(" &", "&").Replace(" *", "*");
 
         return new(className, methodName, methodParams);
     }
@@ -270,25 +270,25 @@ public partial class MainWindow : Window
     {
         HorizontalScrollShift(sender, e);
     }
-    private int Sent;
+    private int _sent;
     private void LeftRightBoxesScroll(object sender, ScrollChangedEventArgs e)
     {
         //get the stack trace
         StackTrace stackTrace = new();
         Debug.WriteLine(stackTrace.GetFrame(10)!.GetMethod()!.Name);
         string name = ((ScrollViewer)sender).Name;
-        if (Sent == 3)
+        if (_sent == 3)
         {
-            Sent = 0;
+            _sent = 0;
             return;
         }
-        if (Sent == 2 && name == "LeftScrollViewer")
+        if (_sent == 2 && name == "LeftScrollViewer")
         {
-            Sent = 0;
+            _sent = 0;
             return;
-        } else if (Sent == 1 && name == "RightScrollViewer")
+        } else if (_sent == 1 && name == "RightScrollViewer")
         {
-            Sent = 0;
+            _sent = 0;
             return;
         }
 
@@ -296,7 +296,7 @@ public partial class MainWindow : Window
         
         if (((ScrollViewer)sender).Name == "LeftScrollViewer")
         {
-            Sent = 1;
+            _sent = 1;
             RightScrollViewer.ScrollToHorizontalOffset(Math.Min(LeftScrollViewer.HorizontalOffset, RightScrollViewer.ScrollableWidth));
             //use inOutMap to scroll the right box to have the line at the top that the left box's line at the top is mapped to
 
@@ -321,7 +321,7 @@ public partial class MainWindow : Window
             }
         } else
         {
-            Sent = 2;
+            _sent = 2;
             LeftScrollViewer.ScrollToHorizontalOffset(Math.Min(RightScrollViewer.HorizontalOffset, LeftScrollViewer.ScrollableWidth));
 
             double scrollAmount = RightScrollViewer.VerticalOffset;
@@ -345,20 +345,20 @@ public partial class MainWindow : Window
 
         if (e.Delta < 0)
         {
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineRight();
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineRight();
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineRight();
         }
         else
         {
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineLeft();
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineLeft();
-            Sent = 3;
+            _sent = 3;
             ((ScrollViewer)sender).LineLeft();
         }
     }
