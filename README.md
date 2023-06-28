@@ -1,6 +1,6 @@
 # Slīk 
 
-Slīk (Pronounced Sleek) is an IDE-Like application made to update and/or create cheat SDK's easier. 
+Slīk (Pronounced Sleek) is an IDE-Like application made to update and/or create cheat SDK's easier.
 
 ## Badges
 [![Language C#](https://img.shields.io/github/languages/top/Flash-1337/Slik?color=953dac)]()  
@@ -24,3 +24,8 @@ Slīk (Pronounced Sleek) is an IDE-Like application made to update and/or create
 - IDA output to VFTable
 - VFTable index enum
 - This is in progress
+
+
+## Todo
+
+- GCC symbol support prolly
