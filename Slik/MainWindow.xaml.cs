@@ -109,7 +109,7 @@ public partial class MainWindow : Window
         if (name.StartsWith("is") || name.StartsWith("has") || name.StartsWith("can"))
         {
             // If the function name starts with "is" or "has", it is likely to return a boolean value
-            return "virtual Bool";
+            return "virtual bool";
         }
 
         // If the function name does not match any of the above patterns, it is likely to be a normal void
@@ -259,6 +259,7 @@ public partial class MainWindow : Window
     private void VtableOrIndexesButton_OnClick(object sender, RoutedEventArgs e)
     {
         VtableOrIndexesButton.Content = (string)VtableOrIndexesButton.Content == "vtable" ? "indexes" : "vtable";
+        Convert();
     }
 
     private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)
@@ -361,5 +362,10 @@ public partial class MainWindow : Window
             _sent = 3;
             ((ScrollViewer)sender).LineLeft();
         }
+    }
+
+    private void RightTextBox_Loaded(object sender, RoutedEventArgs e)
+    {
+        Convert();
     }
 }
