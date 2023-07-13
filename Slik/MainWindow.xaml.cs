@@ -37,6 +37,8 @@ public partial class MainWindow : Window
     private void VtableOrIndexesButton_OnClick(object sender, RoutedEventArgs e)
     {
         VtableOrIndexesButton.Content = (string)VtableOrIndexesButton.Content == "vtable" ? "indexes" : "vtable";
+        
+        LeftTextBox_OnTextInput(null, null);
     }
 
     private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)

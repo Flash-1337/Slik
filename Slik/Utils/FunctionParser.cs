@@ -11,7 +11,7 @@ public class FunctionParser
 {
     private static readonly Regex ParseFunctionStringRegex = new(@"; (?<class>\w+)::(?<method>\w+)\((?<params>[^)]*)\)");
     private static readonly Regex ConvertToFunctionRegex = new(@"^\s*(?<returnType>virtual\s+[\w\s]+\*?)\s+(?<name>\w+)\s*\((?<args>[^)]*)\)");
-    private static readonly Regex IsValidFunctionRegex = new(@"^\s*\.rodata:[0-9A-F]+\s+((dq\s+offset\s+)?[_A-Z0-9]+\d+\w*\s*)?;\s*\w+::\w+\([^)]*\)?$");
+    private static readonly Regex IsValidFunctionRegex = new(@"^\s*.*:[0-9A-F]+\s+((dq\s+offset\s+)?[_A-Z0-9]+\d+\w*\s*)?;\s*\w+::\w+\([^)]*\)?$");
     private static readonly Regex ParseDestructorStringRegex = new(@"; (?<class>\w+)::~(?<classC>\w+)");
 
     // ReSharper disable once FieldCanBeMadeReadOnly.Local
