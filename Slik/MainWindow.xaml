@@ -11,7 +11,12 @@
         AllowsTransparency="True"
         WindowStyle="None"
         Height="810"
-        Width="1440">
+        Width="1440"
+        MaxHeight="810"
+        MaxWidth="1440"
+        MinHeight="600"
+        MinWidth="1000"
+    >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="7" />
     </WindowChrome.WindowChrome>
@@ -47,7 +52,7 @@
         <Button Grid.Row="0" x:Name="CloseButton" Click="CloseButton_Click" Margin="0,10,10,10" Style="{StaticResource ControlStyle}">
             <Image Source="{DynamicResource CloseIcon}"/>
         </Button>
-        <Button Grid.Row="0" x:Name="MinimizeButton" Margin="1530,0,0,0" Style="{StaticResource ControlStyle}" HorizontalAlignment="Left" Height="20" Click="MinimizeButton_Click">
+        <Button Grid.Row="0" x:Name="MinimizeButton" Margin="0,0,40,0" Style="{StaticResource ControlStyle}" Height="20" Click="MinimizeButton_Click">
             <Image Source="{DynamicResource MinimizeIcon}"/>
         </Button>
         <Grid Grid.Row="1">
