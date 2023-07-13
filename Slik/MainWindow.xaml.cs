@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Collections;
-using System.Diagnostics;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Diagnostics;
+using System.Windows;
+using Slik.Utils;
+using System;
+using System.Linq;
+
 namespace Slik;
 
 /// <summary>
@@ -33,6 +32,7 @@ public partial class MainWindow : Window
     {
         WindowState = WindowState.Minimized;
     }
+    
 
 
     private static readonly Regex ParseFunctionStringRegex = new(@"; (?<class>\w+)::(?<method>\w+)\((?<params>[^)]*)\)");
@@ -264,7 +264,18 @@ public partial class MainWindow : Window
 
     private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)
     {
-        Convert();
+        if (VtableOrIndexesButton == null)
+            return; // Ran too quick
+
+        var lines = FunctionParser.ParseInput(LeftTextBox.Text, 
+            (string)VtableOrIndexesButton.Content == "vtable" ? 
+                FunctionParser.ParseReturnType.Vftable : 
+                FunctionParser.ParseReturnType.Indexes);
+        
+        if (lines == null)
+            return;
+        
+        RightTextBox.Text = lines.Aggregate((a, b) => a + "\n" + b);
     }
 
     private void LeftRightBoxesScrollPreview(object sender, MouseWheelEventArgs e)
@@ -297,6 +308,7 @@ public partial class MainWindow : Window
         
         if (((ScrollViewer)sender).Name == "LeftScrollViewer")
         {
+            
             _sent = 1;
             RightScrollViewer.ScrollToHorizontalOffset(Math.Min(LeftScrollViewer.HorizontalOffset, RightScrollViewer.ScrollableWidth));
             //use inOutMap to scroll the right box to have the line at the top that the left box's line at the top is mapped to
@@ -309,9 +321,13 @@ public partial class MainWindow : Window
             int lineNumber = (int)(scrollAmount / charHeight);
             double remainder = scrollAmount % charHeight;
             // get line number of right box's top line
-            int rightLineNumber = inOutMap[lineNumber];
+            
+            if (lineNumber > FunctionParser.InOutMap.Length)
+                return;
+            
+            int rightLineNumber = FunctionParser.InOutMap[lineNumber];
             double final = rightLineNumber * charHeight;
-            if (lineNumber + 1 < inOutMap.Length && inOutMap[lineNumber] != inOutMap[lineNumber + 1])
+            if (lineNumber + 1 < FunctionParser.InOutMap.Length && FunctionParser.InOutMap[lineNumber] != FunctionParser.InOutMap[lineNumber + 1])
                 final += remainder;
             // TODO: scroll less based on the amount of lines that match to the same line on the right (a multiplier on the remainder?)
             // set scroll amount of right box
@@ -329,7 +345,7 @@ public partial class MainWindow : Window
             double charHeight = RightTextBox.GetRectFromCharacterIndex(0).Height;
             int lineNumber = (int)(scrollAmount / charHeight);
             double remainder = scrollAmount % charHeight;
-            int leftLineNumber = Array.FindIndex(inOutMap, v => v == lineNumber);
+            int leftLineNumber = Array.FindIndex(FunctionParser.InOutMap, v => v == lineNumber);
             double final = leftLineNumber * charHeight + remainder;
             // always add the remainder because scrolling on the right will always scroll on the left as well
             // TODO: scroll more based on the amount of lines to skip (a multiplier on the remainder?)
