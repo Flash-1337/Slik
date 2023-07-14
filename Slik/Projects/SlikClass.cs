@@ -64,7 +64,7 @@ namespace Slik.Projects
         
         public bool Saved = false;
         
-        public static List<SlikClass> Classes = new();
+        public List<SlikClass> Classes = new();
         
         public SlikProject(string name, string description = "")
         {

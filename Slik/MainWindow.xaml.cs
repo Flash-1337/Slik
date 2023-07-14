@@ -262,7 +262,7 @@ public partial class MainWindow : Window
     private void VtableOrIndexesButton_OnClick(object sender, RoutedEventArgs e)
     {
         VtableOrIndexesButton.Content = (string)VtableOrIndexesButton.Content == "vtable" ? "indexes" : "vtable";
-        Convert();
+        LeftTextBox_OnTextInput(null, null);
     }
 
     private void LeftTextBox_OnTextInput(object sender, TextChangedEventArgs e)
@@ -276,6 +276,9 @@ public partial class MainWindow : Window
                 FunctionParser.ParseReturnType.Indexes);
         
         if (lines == null)
+            return;
+
+        if (lines.Length == 0)
             return;
         
         RightTextBox.Text = lines.Aggregate((a, b) => a + "\n" + b);
