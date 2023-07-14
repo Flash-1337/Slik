@@ -4,7 +4,10 @@ using System.Diagnostics;
 using System.Windows;
 using Slik.Utils;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Slik;
 
@@ -191,16 +194,16 @@ public partial class MainWindow : Window
                 }
                 foreach (Function? oldFunc in oldVTableFunctions)
                 {
-                    if (oldFunc == null || newFunc.wasChanged || oldFunc.wasChanged)
+                    if (oldFunc == null || newFunc.Changed || oldFunc.Changed)
                     {
                         Debug.WriteLine("Skipping a function in the old vtable because:");
                         if (oldFunc == null)
-                            Debug.WriteLine("It is null");
-                        if (oldFunc?.wasChanged ?? false)
-                            Debug.WriteLine("The old vtable function was already changed");
-                        if (newFunc.wasChanged)
+                            Debug.WriteLine("\tIt is null");
+                        if (oldFunc?.Changed ?? false)
+                            Debug.WriteLine("\tThe old vtable function was already changed");
+                        if (newFunc.Changed)
                         {
-                            Debug.WriteLine("The new vtable function was already changed");
+                            Debug.WriteLine("\tThe new vtable function was already changed");
                             break;
                         }
 
@@ -222,8 +225,8 @@ public partial class MainWindow : Window
                     }
 
 
-                    newFunc.wasChanged = true;
-                    oldFunc.wasChanged = true;
+                    newFunc.Changed = true;
+                    oldFunc.Changed = true;
                 }
             }
         }
@@ -234,9 +237,9 @@ public partial class MainWindow : Window
         Debug.WriteLine("Converting to strings");
         foreach (Function? func in functionList1)
         {
-            functionNames.Add($"{func?.ReturnType} {func?.Name}({func?.Args});{(IncludeIndexes ? $" // {newIndex} (0x{newIndex * (ThirtyTwoBit ? 4 : 8):X})" : string.Empty)}");
+            functionNames.Add($"{func.ReturnType} {func.Name}({func.Args});{(IncludeIndexes ? $" // {newIndex} (0x{newIndex * (ThirtyTwoBit ? 4 : 8):X})" : string.Empty)}");
 
-            if (lastFunctionName != func?.Name && !func!.Name.Contains('~'))
+            if (lastFunctionName != func.Name && !func.Name.Contains('~'))
                 functionIndexes.Add($"void {func.Name} = {newIndex};{(IncludeIndexes ? $" // 0x{newIndex * (ThirtyTwoBit ? 4 : 8):X}" : string.Empty)}");
 
 
