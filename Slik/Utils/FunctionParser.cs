@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using UI.SyntaxBox;
 
 namespace Slik.Utils;
 
@@ -26,7 +28,6 @@ public class FunctionParser
     public static int[] InOutMap = {}; // Used for textbox in MainWindow
     
     private static bool _alreadyFoundDestructor;
-
 
     public enum ParseReturnType
     {
@@ -90,7 +91,7 @@ public class FunctionParser
         if (input.Contains('~') && input.Contains("dq offset")) // Destructor
             return ParseDestructorString(input);
 
-        if (input.Contains("___cxa_pure_virtual")) // Pure virtual function
+        if (input.Contains("cxa_pure_virtual")) // Pure virtual function
             return new("Class", "Function" + index, "");
 
 
@@ -261,5 +262,138 @@ public class FunctionParser
         }
 
         return true;
+    }
+    
+    public static void Convert(TextBox LeftTextBox, TextBox RightTextBox, Button VtableOrIndexesButton)
+    {
+        // Read the input file
+
+        string[] lines;
+
+        lines = LeftTextBox.Text.Replace("\r","").Split('\n');
+        List<string> functionNames = new();
+        List<string> functionIndexes = new();
+        List<Function?> functionList1 = new();
+
+
+
+        int index = -1; // -1 because of the typeinfo 
+
+        // Read all lines
+        InOutMap = new int[lines.Length];
+        for (int i = 0; i < lines.Length; i++)
+        {
+            InOutMap[i] = functionList1.Count;
+            string line = lines[i];
+            // Parse the line
+            Function? function = ParseString(line, index);
+
+            // Check if the line was a valid function
+            if (function == null)
+            {
+                Debug.WriteLine($"Line {i} was not a valid function");
+                continue;
+            }
+
+            // Guess the return type
+            string returnType = GuessReturnType(function.Name);
+
+                
+            functionList1.Add(new("class", function.Name, function.Args, returnType));
+
+            index++;
+        }
+
+
+        if (_mergePath != null)
+        {
+            // interpret the vtable from the input file
+
+            if (!File.Exists(_mergePath))
+            {
+                Debug.WriteLine($"Merge file {_mergePath} does not exist");
+                return;
+            }
+
+            Debug.WriteLine("Attempting to merge with " + _mergePath);
+            string[] oldVtableStr = File.ReadAllLines(_mergePath);
+
+            List<Function?> oldVTableFunctions = new();
+
+            foreach (string line in oldVtableStr)
+            {
+                oldVTableFunctions.Add(ConvertToFunction(line));
+            }
+            Debug.WriteLine("Finished parsing old vtable, attempting to merge");
+            foreach (Function? newFunc in functionList1)
+            {
+                if (newFunc == null)
+                {
+                    Debug.WriteLine("Skipping null function in new vtable");
+                    continue;
+                }
+                foreach (Function? oldFunc in oldVTableFunctions)
+                {
+                    if (oldFunc == null || newFunc.Changed || oldFunc.Changed)
+                    {
+                        Debug.WriteLine("Skipping a function in the old vtable because:");
+                        if (oldFunc == null)
+                            Debug.WriteLine("\tIt is null");
+                        if (oldFunc?.Changed ?? false)
+                            Debug.WriteLine("\tThe old vtable function was already changed");
+                        if (newFunc.Changed)
+                        {
+                            Debug.WriteLine("\tThe new vtable function was already changed");
+                            break;
+                        }
+
+                        continue;
+                    }
+
+                    if (newFunc.Name != oldFunc.Name) continue;
+
+                    if (newFunc.Args != oldFunc.Args)
+                    {
+                        Console.WriteLine($"Changing args of {newFunc.Name} from {newFunc.Args} to {oldFunc.Args}");
+                        newFunc.Args = oldFunc.Args;
+                    }
+
+                    if (newFunc.ReturnType != oldFunc.ReturnType)
+                    {
+                        Console.WriteLine($"Changing return type of {newFunc.Name} from {newFunc.ReturnType} to {oldFunc.ReturnType}");
+                        newFunc.ReturnType = oldFunc.ReturnType;
+                    }
+
+
+                    newFunc.Changed = true;
+                    oldFunc.Changed = true;
+                }
+            }
+        }
+
+        int newIndex = 0;
+
+        string lastFunctionName = "";
+        Debug.WriteLine("Converting to strings");
+        foreach (Function? func in functionList1)
+        {
+            functionNames.Add($"{func.ReturnType} {func.Name}({func.Args});{(_includeIndexes ? $" // {newIndex} (0x{newIndex * (_thirtyTwoBit ? 4 : 8):X})" : string.Empty)}");
+
+            if (lastFunctionName != func.Name && !func.Name.Contains('~'))
+                functionIndexes.Add($"void {func.Name} = {newIndex};{(_includeIndexes ? $" // 0x{newIndex * (_thirtyTwoBit ? 4 : 8):X}" : string.Empty)}");
+
+
+            if (!func.Name.Contains('~'))
+                newIndex++;
+
+            lastFunctionName = func.Name;
+        }
+
+        if (RightTextBox == null)
+            return;
+            
+        RightTextBox.Text = (string)VtableOrIndexesButton.Content == "vtable" ? string.Join('\n', functionNames) : string.Join('\n', functionIndexes);
+
+        Debug.WriteLine("Converted");
     }
 }

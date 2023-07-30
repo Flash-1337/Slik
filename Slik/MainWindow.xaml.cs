@@ -36,7 +36,7 @@ public partial class MainWindow : Window
         WindowState = WindowState.Minimized;
     }
     
-
+ 
 
     private static readonly Regex ParseFunctionStringRegex = new(@"; (?<class>\w+)::(?<method>\w+)\((?<params>[^)]*)\)");
     private static readonly Regex ConvertToFunctionRegex = new(@"^\s*(?<returnType>virtual\s+[\w\s]+\*?)\s+(?<name>\w+)\s*\((?<args>[^)]*)\)");
@@ -97,7 +97,7 @@ public partial class MainWindow : Window
         if (input.Contains('~') && input.Contains("dq offset")) // Destructor
             return ParseDestructorString(input);
 
-        if (input.Contains("___cxa_pure_virtual")) // Pure virtual function
+        if (input.Contains("cxa_pure_virtual")) // Pure virtual function
             return new("Class", "Function" + index, "");
 
 
@@ -124,7 +124,7 @@ public partial class MainWindow : Window
     private static bool IncludeIndexes = true;
     private static bool ThirtyTwoBit;
 
-    public void Convert()
+   public void Convert()
     {
         // Read the input file
 
